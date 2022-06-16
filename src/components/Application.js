@@ -4,7 +4,6 @@ import "components/Application.scss";
 import DayList from "./DayList";
 import Appointment from './Appointment';
 
-
 const appointments = {
   "1": {
     id: 1,
