@@ -50,12 +50,13 @@ export default function Application(props) {
     appointments: {}
   });
 
+  const setDay = day => setState({ ...state, day });
+  const setDays = days => setState(prev => ({ ...prev, days }));
+
   const convertedAppointments = Object.values(appointments).map((appointment) => {
     return <Appointment key={appointment.id} {...appointment} />;
   }) 
-
-  const setDay = day => setState({ ...state, day });
-
+  
   useEffect(() => {
     axios.get("/api/days").then(response => setState({ ...state, days: response.data }));
   }, []);
