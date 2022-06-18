@@ -19,7 +19,6 @@ export function getInterview(state, interview) {
   return fullInterview;
 }
 
-
 // if (!interview.interviewer) return null;
 // fullInterview.student = interview.student;
 // const interviewer = {
