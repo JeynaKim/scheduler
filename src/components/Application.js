@@ -13,6 +13,11 @@ export default function Application(props) {
     appointments: {},
     interviewers: {}
   });
+  
+  function bookInterview(id, interview) {
+    console.log(id, interview);
+    }
+    
 
   const setDay = day => setState({ ...state, day });
 
@@ -28,6 +33,7 @@ export default function Application(props) {
         time={appointment.time}
         interview={interview}
         interviewers={dailyInterviewers}
+        bookInterview={bookInterview}
       />
     );
   });
@@ -46,7 +52,9 @@ export default function Application(props) {
       }))
     }, []);
   })
-  
+
+
+
   return (
     <main className="layout">
       <section className="sidebar">
