@@ -61,7 +61,6 @@ export default function Application(props) {
       .then((response) => {
         setState({ ...state, appointments });
     })
-
   }
   
   const setDay = day => setState({ ...state, day });
