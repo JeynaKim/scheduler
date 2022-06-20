@@ -19,9 +19,9 @@ export default function Appointment(props) {
     const interview = {
       student: name,
       interviewer
-      
     };
     props.bookInterview(props.id, interview)
+      .then(() => transition(SHOW));
   }
 
   return (
@@ -36,6 +36,7 @@ export default function Appointment(props) {
         interviewers={props.interviewers}
         onCancel={back}
         onSave={save} />}
+      {/* {mode === SAVING && <Status message={"Saving"} />} */}
     </article>
   )
 };
