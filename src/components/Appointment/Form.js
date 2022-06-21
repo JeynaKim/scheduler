@@ -18,6 +18,7 @@ export default function Form(props) {
   };
 
   const validate = () => {
+    console.log("student", student)
     if (student === "") {
       setError("Student name cannot be blank");
       return;
@@ -49,7 +50,7 @@ export default function Form(props) {
         <InterviewerList 
           interviewers={props.interviewers}
           value={interviewer}
-          onChange={(event) => setInterviewer(event)}
+          onChange={setInterviewer}
         />
       </section>
       <section className="appointment__card-right">
