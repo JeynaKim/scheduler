@@ -28,7 +28,7 @@ export default function useApplicationData() {
 
   function updateSpots(isBooking, isEditing) {
     const updatedDays = state.days.map((day) => {
-      const spots = isBooking ? day.spots - 1 : day.spots + 1
+      const spots = isBooking ? day.spots - 1 : day.spots + 1;
       return {
         ...day, 
         spots: day.name === state.day  && !isEditing ? spots : day.spots

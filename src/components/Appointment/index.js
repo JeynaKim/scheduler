@@ -1,5 +1,4 @@
 import React from "react";
-import './styles.scss';
 import Header from "./Header";
 import Show from "./Show";
 import Empty from "./Empty";
@@ -8,6 +7,7 @@ import Status from "./Status";
 import Confirm from "./Confirm";
 import Error from "./Error";
 import useVisualMode from "hooks/useVisualMode";
+import './styles.scss';
 
 export default function Appointment(props) {
   const EMPTY = "EMPTY";
@@ -48,27 +48,33 @@ export default function Appointment(props) {
       <Header time={props.time} />
 
       {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
+
       {mode === SHOW && <Show
         student={props.interview.student}
         interviewer={props.interview.interviewer}
         onDelete={() => transition(CONFIRM)} 
         onEdit={() => transition(EDIT)} />}
+      
       {mode === CREATE && <Form
         interviewers={props.interviewers}
         onCancel={back}
         onSave={save} />}
+      
       {mode === SAVING && <Status message={"Saving"} />}
       {mode === DELETING && <Status message={"Deleting"} />}
+
       {mode === CONFIRM && <Confirm
         onCancel={back}
         onConfirm={destroy}
         message="Are you sure you would like to delete?" />}
+      
       {mode === EDIT && <Form
         student={props.interview.student}
         interviewer={props.interview.interviewer.id}
         interviewers={props.interviewers}
         onCancel={back}
         onSave={save} />}
+      
       {mode === ERROR_SAVE && <Error
         message={"Error! Not be able to save your appointment"}
         onClose={back} />}
